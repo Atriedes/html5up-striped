@@ -1,5 +1,5 @@
 {
-    "name": "Atriedes/html5up-stripped",
+    "name": "jowy/html5up-stripped",
     "description": "HTML5UP Stripped Theme",
     "type": "bolt-theme",
     "keywords": ["theme", "html5UP", "skell", "responsive", "port"],
@@ -9,7 +9,7 @@
     "license": "Creative Commons Attribution 3.0 Unported",
     "authors": [
         {
-            "name": "Prasetyo Wicaksono",
+            "name": "prasetyo",
             "email": "prasetyo@nanomit.es"
         }
     ],
