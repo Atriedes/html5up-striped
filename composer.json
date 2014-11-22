@@ -1,6 +1,6 @@
 {
-    "name": "jowy/html5up-stripped",
-    "description": "HTML5UP Stripped Theme",
+    "name": "Atriedes/html5up-striped",
+    "description": "HTML5UP Striped Theme",
     "type": "bolt-theme",
     "keywords": ["theme", "html5UP", "skell", "responsive", "port"],
     "require": {
