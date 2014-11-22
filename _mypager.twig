@@ -1,0 +1,37 @@
+{% set link = pager.makelink() %}
+
+{% if pager.totalpages > 1 %}
+<div class="pagination {{class}}">
+  <div class="pages">
+{# 'first' and 'prev' #}
+{% if pager.current > 1 and class!="narrow" %}
+    <a href="{{link}}{{pager.current-1}}">&lsaquo; </a>
+{% endif %}
+{% if pager.current > surr+1 %}
+    <a href="{{link}}{{1}}">&laquo; 1</a>
+{% endif %}
+
+{# start with '..' if there are more than surr+1 before currentpage.. #}
+{% if pager.current > surr+2 %}
+    <a href="#">...</a>
+{% endif %}
+
+{% for i in max(1, pager.current-surr)..min(pager.current+surr, pager.totalpages) %}
+    <a  {% if i==pager.current %}class='active'{%endif%} href="{{link}}{{i}}">{{i}}</a>
+{% endfor %}
+
+{# end with '..' if there are more than surr+1 after currentpage.. #}
+{% if pager.current < (pager.totalpages - surr - 1) %}
+    <a href="#">...</a>
+{% endif %}
+
+{# 'next' and 'last' #}
+{% if pager.current < pager.totalpages-surr %}
+    <a href="{{link}}{{pager.totalpages}}">{{pager.totalpages}} &raquo; </a>
+{% endif %}
+{% if pager.current < pager.totalpages and class!="narrow" %}
+    <a href="{{link}}{{pager.current+1}}">&rsaquo;</a>
+{% endif %}
+  </div>
+</div>
+{% endif %}

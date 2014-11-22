@@ -1,0 +1,23 @@
+{
+    "name": "Atriedes/html5up-stripped",
+    "description": "HTML5UP Stripped Theme",
+    "type": "bolt-theme",
+    "keywords": ["theme", "html5UP", "skell", "responsive", "port"],
+    "require": {
+        "bolt/bolt": ">=2.0.0,<3.0.0"
+    },
+    "license": "Creative Commons Attribution 3.0 Unported",
+    "authors": [
+        {
+            "name": "Prasetyo Wicaksono",
+            "email": "prasetyo@nanomit.es"
+        }
+    ],
+	
+	"extra": {
+        "bolt-screenshots": [
+            "screenshots/screenshot-1.png",
+            "screenshots/screenshot-2.png"
+        ]
+    }
+}

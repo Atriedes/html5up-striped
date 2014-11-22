@@ -1,0 +1,9 @@
+<nav id="nav">
+	<ul>
+		{% for item in menu %}
+		    <li class="{% if item|current %}current{% endif %}">
+		        <a href="{{ item.link }}">{{item.label}}</a>
+		    </li>
+		{% endfor %}
+	</ul>
+</nav>

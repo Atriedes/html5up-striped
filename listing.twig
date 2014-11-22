@@ -1,0 +1,45 @@
+{% include '_header.twig' %}
+
+	<!--
+		Note: Set the body element's class to "left-sidebar" to position the sidebar on the left.
+		Set it to "right-sidebar" to, you guessed it, position it on the right.
+	-->
+	<body class="left-sidebar">
+
+		<!-- Wrapper -->
+			<div id="wrapper">
+
+				<!-- Content -->
+					<div id="content">
+						<div class="inner">
+					
+							<!-- Post -->
+								{% for record in records %}
+									<article class="box post post-excerpt">
+
+										<header>
+											<h2><a href="{{ record.link }}">{{ record.title }}</a></h2>
+										</header>
+
+										<div class="info">
+											<span class="date"><span class="month">{{ record.datecreated|date('M')}}</span> <span class="day">{{ record.datecreated|date('d')}}</span><span class="year">, {{ record.datecreated|date('Y')}}</span></span>
+										</div>
+
+										{% if record.image!="" %}
+											<a href="{{ record.link }}" class="image featured"><img src="{{ image(record.image) }}" alt="" /></a>
+						                {% endif %}
+
+						                <p>{{ record.teaser }}</p>
+						            </article>
+								{% endfor %}
+
+							<!-- Pagination -->
+								{{ pager('', 3, '_mypager.twig') }}
+
+						</div>
+					</div>
+
+					{% include '_sidebar.twig' %}
+			</div>
+
+	</body>

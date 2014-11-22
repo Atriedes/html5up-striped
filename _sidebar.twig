@@ -1,0 +1,48 @@
+				<!-- Sidebar -->
+					<div id="sidebar">
+					
+						<!-- Logo -->
+							<h1 id="logo"><a href="{{ paths.root }}">{{ app.config.get('general/sitename') }}</a></h1>
+					
+						<!-- Nav -->
+							{{ menu('main', '_menu.twig') }}
+
+						<!-- Search -->
+							<section class="box search">
+								<form method="get" action="{{ paths.root }}search" id="searchform" enctype="text/plain">
+									<input type="search" class="text" name="search" value="{% if search is defined %}{{ search|escape }}{% endif %}" placeholder="{{ __("Search …") }}" placeholder="Search" />
+								</form>
+							</section>
+					
+						<!-- Text -->
+							<section class="box text-style1">
+								<div class="inner">
+									<p>
+										{{ app.config.get('general/payoff') }}
+									</p>
+								</div>
+							</section>
+					
+						<!-- Recent Posts -->
+							<section class="box recent-posts">
+								{% for ct in app.config.get('contenttypes') if not ct.viewless|default(false) %}
+									{% setcontent records = ct.slug ~ "/latest/5" %}
+									<header>
+										<h2>{{ __('contenttypes.generic.recent', {'%contenttypes%': ct.slug}) }}</h2>
+									</header>
+							        <ul>
+							            {% for record in records %}
+							                <li><a href="{{ record.link }}">{{ record.title }}</a></li>
+							            {% else %}
+							                <li>{{ __('contenttypes.generic.no-recent', {'%contenttype%': ct.slug}) }}</li>
+							            {% endfor %}
+							        </ul>
+								{% endfor %}
+							</section>
+						
+						<!-- Copyright -->
+							<ul id="copyright">
+								<li>&copy; Untitled.</li><li>Design: <a href="http://html5up.net">HTML5 UP</a></li>
+							</ul>
+
+					</div>
