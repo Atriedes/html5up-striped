@@ -10,10 +10,10 @@
       			{{ app.config.get('general/sitename') }}
       			{% if record.title is not defined and app.config.get('general/payoff') %} | {{ app.config.get('general/payoff') }}{% endif %}</title>
 		<meta http-equiv="content-type" content="text/html; charset=utf-8" />
-		<meta name="description" content="{% if record.teaser is defined %}{{record.teaser}}{% else %}{{ app.config.get('general/payoff')}} {% endif %}" />
+		<meta name="description" content="{% if record.teaser is defined %}{{record.teaser|striptags}}{% else %}{{ app.config.get('general/payoff')}} {% endif %}" />
 		<meta name="keywords" content="{% if record.taxonomy.tags is defined %}
     {% for tag in record.taxonomy.tags %}
-        {{ tag }}{% if not loop.last %}, {% endif %}
+        {{ tag|trim }}{% if not loop.last %}, {% endif %}
     {% endfor %}
 {% endif %}" />
 		<!--[if lte IE 8]><script src="css/ie/html5shiv.js"></script><![endif]-->
