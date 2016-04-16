@@ -22,7 +22,9 @@
 									</p>
 								</div>
 							</section>
-					
+
+						{{ widgets('aside_top') }}
+
 						<!-- Recent Posts -->
 							<section class="box recent-posts">
 								{% for ct in app.config.get('contenttypes') if not ct.viewless|default(false) %}
@@ -39,6 +41,8 @@
 							        </ul>
 								{% endfor %}
 							</section>
+
+						{{ widgets('aside_bottom') }}
 						
 						<!-- Copyright -->
 							<ul id="copyright">
